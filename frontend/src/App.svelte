@@ -1,3 +1,8 @@
+<svelte:head>
+  <title>Bookstore CRUD</title>
+  <meta name="description" content="A simple bookstore CRUD application." />
+</svelte:head>
+
 <script lang="ts">
   import axios from 'axios';
   import { onMount } from 'svelte';
