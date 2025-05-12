@@ -5,10 +5,12 @@ import (
 	"github.com/rendevv/bookstore/backend/pkg/controllers"
 )
 
-var RegisterBookStoreRoutes = func(router *mux.Router) {
-	router.HandleFunc("/book/", controllers.CreateBook).Methods("POST")  // Fix: Methods, bukan Methhods
-	router.HandleFunc("/book/", controllers.GetBook).Methods("GET")
-	router.HandleFunc("/book/{bookId}", controllers.GetBookById).Methods("GET")
-	router.HandleFunc("/book/{bookId}", controllers.UpdateBook).Methods("PUT")
-	router.HandleFunc("/book/{bookId}", controllers.DeleteBook).Methods("DELETE")
+func RegisterBookStoreRoutes(router *mux.Router) {
+	s := router.PathPrefix("/book").Subrouter()
+
+	s.HandleFunc("/", controllers.CreateBook).Methods("POST")
+	s.HandleFunc("/", controllers.GetBook).Methods("GET")
+	s.HandleFunc("/{bookId}", controllers.GetBookById).Methods("GET")
+	s.HandleFunc("/{bookId}", controllers.UpdateBook).Methods("PUT")
+	s.HandleFunc("/{bookId}", controllers.DeleteBook).Methods("DELETE")
 }

@@ -1,0 +1,28 @@
+### Get all books
+GET http://localhost:8080/book/
+
+### Get book by ID
+GET http://localhost:8080/book/1
+
+### Create book
+POST http://localhost:8080/book/
+Content-Type: application/json
+
+{
+  "name": "Svelte Handbook",
+  "author": "Rendy",
+  "publication": "2025"
+}
+
+### Update book
+PUT http://localhost:8080/book/1
+Content-Type: application/json
+
+{
+  "name": "Updated Book Title",
+  "author": "Rendy",
+  "publication": "2026"
+}
+
+### Delete book
+DELETE http://localhost:8080/book/1
